@@ -13,10 +13,7 @@ const email= userBody.email.toLocaleLowerCase();
         try{
         const userExist=User.findOne({email:email}).exec();
             
-        // if(userExist){
-        //     response.status(400).json({message:"user already exist"})
-        // }
-        // else{
+      
             const hashedPassword=await bcrypt.hash(userBody.password, 10);
             const saveData={
                 email:userBody.email,
